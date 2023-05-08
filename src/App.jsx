@@ -4,6 +4,7 @@ import { Table2Form } from "./Table2Form";
 import { useMultistepForm } from "./useMultistepForm";
 import { Table1Form } from "./Table1Form";
 import { Result } from "./Result";
+import { Overlay } from "./Overlay";
 import "./styles.css";
 
 const INITIAL_DATA = {
@@ -52,6 +53,7 @@ function App() {
       ) : (
         <div>
           <div id="header">
+            <Overlay />
             <div id="nav">
               <a href="">ОЦЕНКА ЭКСПЕРТОВ</a>
               <div className="square">
@@ -122,7 +124,7 @@ function App() {
           </div>
 
           <div id="footer">
-            <div class="line"></div>
+            <div className="line"></div>
             <div className={"question"} id="come">
               <p>
                 <i
