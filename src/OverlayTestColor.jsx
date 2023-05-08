@@ -24,30 +24,35 @@ export const OverlayTestColor = () => {
   }
 
   const handleStart = () => {
-    if(progress < 100){
-      setProgress(progress + 50);
-    } else {
-      setProgress(0);
-    }
-    setTimeout(() => {
-      setColor("#0A3161"); // sua mau o day ne
-      setStartTime(Date.now());
-      setStart(true);
-      audio.play();
-    }, 3000)
+    setProgress(0);
+    setColor("white");
+
+    let count = 0;
+    const intervalId = setInterval(() => {
+      // repeat 10 times in 20s
+      // setColor("white");
+      count++;
+      if (count > 10) {
+        clearInterval(intervalId);
+        // console.log("cleared interval");
+      }
+      else {
+        setColor("#0A3161"); // sua mau o day ne
+        setStartTime(Date.now());
+        setStart(true);
+        // console.log(count);
+        // audio.play();
+      }
+    }, 2000)
   };
 
   const handleClick = () => {
-    if(progress < 100){
-      setProgress(progress + 50);
-    } else {
-      setProgress(0);
-    }
-    if (start) {
+    if (start && progress < 100) {
       setResult(Date.now() - startTime);
       setStart(false);
       setColor('white');
-      // audio.pause();
+      setProgress(progress + 10);
+      // console.log("updated progress" + progress);
     }
   }
 
